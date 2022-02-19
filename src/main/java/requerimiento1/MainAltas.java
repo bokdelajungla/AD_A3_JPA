@@ -18,7 +18,7 @@ import modelo.entidad.Libro;
 
 public class MainAltas {
 	
-	private static EntityManagerFactory factoria = Persistence.createEntityManagerFactory("ActividadJPA");
+	private static EntityManagerFactory factoria;
 	private static EntityManager em = null;
 	
 	private static Autor autor1, autor2, autor3;
@@ -30,7 +30,9 @@ public class MainAltas {
 	private static Libreria libreria1, libreria2;
 	
 	public static void main(String[] args) {
-
+			
+			//Creamos la factoria que será la encargada de crear el EntityManager en cada método
+			factoria = Persistence.createEntityManagerFactory("ActividadJPA");			
 			
 			//Damos de alta los autores
 			altaAutores();
@@ -43,9 +45,11 @@ public class MainAltas {
 			altaLibros();
 			
 			//Dar de alta 2 librerías
-			//Junto con los 8 libros mediante Cascade
+			//Junto con los 8 libros mediante CascadeType.PERSIST
 			altaLibrerias();
 			
+			//Cerramos la factoria
+			factoria.close();
 	}
 
 	private static void altaAutores() {
@@ -228,7 +232,6 @@ public class MainAltas {
 		em.persist(libreria2);
 		em.getTransaction().commit();
 		em.close();
-		factoria.close();
 		System.out.println("----- Libros Creados -----");
 		System.out.println("----- Librerias Creadas -----");
 	}
