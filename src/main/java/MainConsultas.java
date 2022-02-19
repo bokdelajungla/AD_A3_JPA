@@ -83,7 +83,7 @@ public class MainConsultas {
 	 */
 	public static void listarLibros1(List<Libro> listaLibros) {
 		for(Libro l : listaLibros) {
-			System.out.println("Titulo:" + l.getTitulo() + ", autor:" + l.getAutor().getNombre() + " " + l.getAutor().getApellidos() + ", editorial:" + l.getEditorial().getNombre());
+			System.out.println("Titulo: " + l.getTitulo() + ", autor: " + l.getAutor().getNombre() + " " + l.getAutor().getApellidos() + ", editorial: " + l.getEditorial().getNombre());
 		}
 	}
 	
