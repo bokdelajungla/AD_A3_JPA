@@ -20,7 +20,7 @@ public class MainConsultas {
 		 */
 		abrirConexion();
 		
-		String query = "SELECT libros.id, libros.titulo, libros.precio, editoriales.nombre, autores.nombre, autores.apellidos "
+		String query = "SELECT libros.id, libros.titulo, libros.precio, editoriales.nombre as editorial, autores.nombre, autores.apellidos "
 				+ "FROM libros "
 				+ "JOIN editoriales ON editoriales.id = libros.fk_id_editorial "
 				+ "JOIN autores ON autores.id = libros.fk_id_autor";
@@ -29,22 +29,10 @@ public class MainConsultas {
 				
 			ResultSet rs = ps.executeQuery();
 			
-			/*
 			//Usamos la libreria TableSaw (incluida en las dependencias de Maven)
 			System.out.println(Table.read().db(rs).print());
 			System.out.println();
-			*/
-			
-			while(rs.next()){
-				int id = (rs.getInt(1));
-				String titulo = rs.getString(2);
-				Double precio = rs.getDouble(3);
-				String nombreEditorial = rs.getString(4);
-				String nombreAutor = rs.getString(5);
-				String apellidosAutor = rs.getString(6);
-				System.out.println(id + " - " + titulo + " - " + precio + " - " + nombreEditorial + 
-									" - " + nombreAutor + " " + apellidosAutor);
-			}
+
 			
 		} catch (SQLException e) {
 				System.out.println("Error al realizar la primera consulta");
