@@ -18,18 +18,22 @@ public class InfoCoche {
 	private String propietario;
 	private String ciudadDeCompra;
 	
-	// Relación de uno a uno
+	// Relaciî‰¢ de uno a uno
 		//-----------------------
 		// Al ser una relacion bidireccional, tambien ponemos la anotacion @OneToOne sobre
 		// este atributo
 		@OneToOne
 			
-		// Mediante @JoinColumn establecemos que la FK estará en esta tabla (info_coche).
+		// Mediante @JoinColumn establecemos que la FK estarï¿½ en esta tabla (info_coche).
 		// Le podemos dar el nombre de la columna y a que columna de la tabla
 		// cliente estamos referenciando, que normalmente es la Primary Key (PK)
 		@JoinColumn(name = "fk_id_coche", referencedColumnName = "id")
 		private Coche coche;
 
+		public InfoCoche() {
+			super();
+		}
+		
 		public InfoCoche(int id, String propietario, String ciudadDeCompra, Coche coche) {
 			super();
 			this.id = id;

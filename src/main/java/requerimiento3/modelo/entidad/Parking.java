@@ -22,6 +22,11 @@ public class Parking {
 	@OneToMany(mappedBy="parking", cascade=CascadeType.ALL) 
 	private List<Coche> coches;
 
+	
+	public Parking () {
+		super();
+	}
+	
 	public Parking(int id, String ciudad, int capacidad, List<Coche> coches) {
 		super();
 		this.id = id;

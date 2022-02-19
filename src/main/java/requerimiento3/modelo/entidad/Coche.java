@@ -31,13 +31,17 @@ public class Coche {
 	
 	@ManyToOne
 	// En una relacion de "uno a muchos", la FK siempre esta en el lado de "Muchos"
-	// Por lo tanto la @JoinColumn siempre estará en este lado en este tipo de relaciones
+	// Por lo tanto la @JoinColumn siempre estarï¿½ en este lado en este tipo de relaciones
 	@JoinColumn(name="fk_id_parking", referencedColumnName="id")
 	private Parking parking;
 	
 	@ManyToMany(mappedBy="coches", cascade=CascadeType.PERSIST) 
 	private List<VentaWeb> webs;
 
+	public Coche() {
+		super();
+	}
+	
 	public Coche(int id, String color, String matricula, String marca, InfoCoche infoCoche, Parking parking,
 			List<VentaWeb> webs) {
 		super();

@@ -35,6 +35,10 @@ public class VentaWeb {
 				   inverseJoinColumns= { @JoinColumn(name="fk_id_coche", referencedColumnName="id")}) //FKs que aportan el resto de entidades
 		private List<Coche> coches;
 
+		public VentaWeb() {
+			super();
+		}
+		
 		public VentaWeb(int id, String web, String pais, List<Coche> coches) {
 			super();
 			this.id = id;

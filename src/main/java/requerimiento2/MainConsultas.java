@@ -66,7 +66,7 @@ public class MainConsultas {
 		 */
 		System.out.println("** Listado de libros y la libreria en la que estan **");
 		// realizamos la consulta JPQL
-		query = em.createQuery("SELECT l FROM Libro ORDER BY l.titulo");
+		query = em.createQuery("SELECT l FROM Libro l ORDER BY l.titulo");
 		// guardamos el resultado en una lista de tipo Libro
 		libros = query.getResultList();
 		// imprimos el resultado con el metodo correspondiente
