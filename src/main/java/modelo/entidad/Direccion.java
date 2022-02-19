@@ -49,4 +49,8 @@ public class Direccion {
 		this.ciudad = ciudad;
 	}
 	
+	public String dirString() {
+		return nombreVia + ", " + codigoPostal + ", " + ciudad + ".";
+	}
+	
 }
