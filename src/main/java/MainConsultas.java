@@ -93,9 +93,9 @@ public class MainConsultas {
 	 */
 	public static void listarAutores(List<Autor> listaAutores) {
 		for(Autor a : listaAutores) {
-			System.out.println(a.getNombre() + ", libros escritos:" );
+			System.out.println(a.getNombre() + a.getApellidos() + ", libros escritos:" );
 			for(Libro l : a.getLibros()) {
-				System.out.println(l.getTitulo());
+				System.out.println("\t📖" + l.getTitulo());
 			}
 			System.out.println();	
 		}
@@ -109,7 +109,7 @@ public class MainConsultas {
 		for(Libreria lib : listaLibrerias) {
 			System.out.println(lib.getNombre() + ", libros editados:" );
 			for(Libro l : lib.getListaLibros()) {
-				System.out.println(l.getTitulo());
+				System.out.println("\t📖" + l.getTitulo());
 			}
 			System.out.println();	
 		}
@@ -121,9 +121,9 @@ public class MainConsultas {
 	 */
 	public static void listarLibros2(List<Libro> listaLibros) {
 		for(Libro l : listaLibros) {
-			System.out.println("Titulo:" + l.getTitulo() + ", diponible en:");
+			System.out.println(l.getTitulo() + ", diponible en:");
 			for(Libreria lib : l.getListaLibrerias()) {
-				System.out.println("Nombre:" lib.getNombre() + ", direccion:" + lib.getDireccion().toString());
+				System.out.println("\t🏠" + lib.getNombre() + ", direccion:" + lib.getDireccion().dirString());
 			}
 			System.out.println();	
 		}
