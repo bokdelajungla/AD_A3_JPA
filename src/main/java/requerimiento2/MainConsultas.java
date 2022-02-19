@@ -52,7 +52,6 @@ public class MainConsultas {
 		 * Tercera consulta:
 		 * Mostrar todas las librerías, con solamente sus libros asociados
 		 */
-		
 		System.out.println("** Listado de librerias con sus libros **");
 		// realizamos la consulta JPQL
 		query = em.createQuery("SELECT lib FROM Libreria lib ORDER BY lib.nombre");
@@ -95,7 +94,7 @@ public class MainConsultas {
 		for(Autor a : listaAutores) {
 			System.out.println(a.getNombre() + a.getApellidos() + ", libros escritos:" );
 			for(Libro l : a.getLibros()) {
-				System.out.println("\t📖" + l.getTitulo());
+				System.out.println("\t" + l.getTitulo());
 			}
 			System.out.println();	
 		}
@@ -109,7 +108,7 @@ public class MainConsultas {
 		for(Libreria lib : listaLibrerias) {
 			System.out.println(lib.getNombre() + ", libros editados:" );
 			for(Libro l : lib.getListaLibros()) {
-				System.out.println("\t📖" + l.getTitulo());
+				System.out.println("\t" + l.getTitulo());
 			}
 			System.out.println();	
 		}
@@ -123,7 +122,7 @@ public class MainConsultas {
 		for(Libro l : listaLibros) {
 			System.out.println(l.getTitulo() + ", diponible en:");
 			for(Libreria lib : l.getListaLibrerias()) {
-				System.out.println("\t🏠" + lib.getNombre() + ", direccion:" + lib.getDireccion().dirString());
+				System.out.println("\t" + lib.getNombre() + ", direccion:" + lib.getDireccion().dirString());
 			}
 			System.out.println();	
 		}
